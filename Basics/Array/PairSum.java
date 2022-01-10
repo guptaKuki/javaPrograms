@@ -1,0 +1,41 @@
+package Array;
+
+import java.util.Scanner;
+
+public class PairSum {
+	
+	public static int[] takingInput() {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the size of Array");
+		int size=s.nextInt();
+		int input[]= new int[size];
+		
+		System.out.println("Enter the elements:");
+		for(int i=0;i<size;i++) {
+			input[i]=s.nextInt();
+		}
+		return input;
+	}
+	
+	public static int numberOfPairSum( int arr[] , int sum) {
+		int count=0;
+		for( int i=0 ;i< arr.length; i++) {
+			for( int j=i+1 ;j<arr.length ;j++) {
+					if( arr[i] +arr[j] == sum) {
+						count++;
+					}
+			}
+		}
+		return count;
+	}
+
+	public static void main(String[] args) {
+		Scanner k= new Scanner(System.in);
+		int input[]=takingInput();
+		System.out.println("enter the value of sum");
+		int sum=k.nextInt();
+		int count= numberOfPairSum(input ,sum);
+		System.out.println(count);
+		
+		}
+}
