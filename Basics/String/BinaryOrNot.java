@@ -13,7 +13,7 @@ public class BinaryOrNot {
 		
 		System.out.println("Number is binary or not :" + str.matches("[01]*")); 
 		 // This .matches(sting) matches the given string with the argument passes in matches method
-		// [01]* matches the string wheather it is 0 or 1 and '*' multiple times.
+		// [01]* matches the string whether it is 0 or 1 and '*' multiple times.
 		
 		System.out.println("number is hexa :"+ str2.matches("[0-9 A-F]+"));
 		
