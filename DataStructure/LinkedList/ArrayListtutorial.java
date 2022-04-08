@@ -11,6 +11,7 @@ public class ArrayListtutorial {
 		arr.add(30);
 		arr.add(40);
 		arr.add(1, 5);
+		System.out.println(arr.indexOf(2));
 		
 		System.out.println(arr.size());
 		System.out.println(arr.get(2));
