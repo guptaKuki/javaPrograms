@@ -31,6 +31,17 @@ public class LinkedList {
 		System.out.print(head.next.data+"->");
 		System.out.print(head.next.next.data+"->");
 		System.out.print(head.next.next.next.data);
+		System.out.println();
+	}
+	
+	public static void print(Node<Integer>  head) {
+		Node<Integer> temp =head;
+		while(temp != null) {
+			//System.out.print(temp.data+" ["+temp+"]->");
+			System.out.print(temp.data+"->");
+			temp=temp.next;
+		}
+		System.out.println("null");
 	}
 
 	public static void main(String[] args) {
@@ -42,6 +53,7 @@ public class LinkedList {
 		
 		Node<Integer> head=createLinkedList();
 		printLinkedList(head);
+		print(head);
 	}
 
 }
