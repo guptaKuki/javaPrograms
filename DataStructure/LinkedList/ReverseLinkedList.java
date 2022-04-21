@@ -10,7 +10,6 @@ public class ReverseLinkedList {
 		if(tail == null) {
 			return;
 		}
-		
 		reverseList(tail.next);
 		System.out.print(tail.data+"->");
 	
