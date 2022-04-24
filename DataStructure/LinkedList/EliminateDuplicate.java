@@ -10,8 +10,8 @@ public class EliminateDuplicate {
 		while(tail.next != null) {
 			if( tail.data == tail.next.data) 
 				tail.next=tail.next.next;
-			
-			tail=tail.next;
+			else
+				tail=tail.next;
 		}
 		return head;
 	}

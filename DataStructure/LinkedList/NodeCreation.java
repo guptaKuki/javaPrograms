@@ -18,6 +18,7 @@ public class NodeCreation {
 	
 	public static Node<Integer> createLinkedListUsingNoOfNode(){
 		Scanner sc= new Scanner(System.in);
+		System.out.println("Enter the no of nodes:");
 		int n=sc.nextInt();
 		
 		Node<Integer> head=new Node<>(sc.nextInt());
