@@ -11,7 +11,7 @@ class Node<T>{
 	}
 }
 
-public class LinkedList {
+public class LinkedListImplement {
 	
 	public static Node<Integer> createLinkedList(){
 		Node<Integer> n1= new Node<>(10);

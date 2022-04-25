@@ -19,7 +19,7 @@ public class IncrementElement {
 	}
 	
 	public static void main(String[] args) {
-		LinkedList ll=new LinkedList();
+		LinkedListImplement ll=new LinkedListImplement();
 		Node<Integer> head=ll.createLinkedList();
 		increment(head);
 		ll.print(head);
