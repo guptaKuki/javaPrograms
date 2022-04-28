@@ -6,7 +6,7 @@ public class NodeCreation {
 	
 	public static Node<Integer> createLinkedList(){
 		Scanner sc= new Scanner(System.in);
-		
+		System.out.println("Enter the elements : ");
 		Node<Integer> head=new Node<>(sc.nextInt());
 		Node<Integer> tail=head;
 		while(tail.data!= -1) {
