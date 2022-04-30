@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class DeleteEverynthNode {
 	
+	//NOT COMPLETED
 	public static Node<Integer>skipNNode(Node<Integer> head, int m,int n){
 		
 		//corner cases
