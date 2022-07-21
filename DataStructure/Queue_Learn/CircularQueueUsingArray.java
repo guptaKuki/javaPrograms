@@ -14,6 +14,22 @@ public class CircularQueueUsingArray {
 		}
 		
 		
+		private void doubleCapacity() {
+			int temp[]=data;
+			data= new int[2*temp.length];
+			
+			int index=0;
+			
+			for(int i=front ;i<temp.length;i++)
+				data[index++]=temp[i];
+			
+			for( int j=0;j<front;j++)
+				data[index++]=temp[j];
+				
+			front=0;
+			rear=temp.length-1;
+		}
+		
 		
 		public int size() {
 			return size;
@@ -31,6 +47,10 @@ public class CircularQueueUsingArray {
 		}
 		
 		public void enqueue(int ele) {
+			
+			if(size == data.length)
+				doubleCapacity();
+			
 			if(rear == -1) {
 				data[++rear]=ele;
 				front++;
@@ -68,6 +88,10 @@ public class CircularQueueUsingArray {
 			 System.out.println("Dequeue: "+ cq.dequeue());
 			 cq.enqueue(15);
 			 cq.enqueue(25);
+			 cq.enqueue(35);
+			 cq.enqueue(45);
+			 cq.enqueue(55);
+			 System.out.println(cq.size);
 			 System.out.println("Dequeue: "+ cq.dequeue());
 			 System.out.println("Dequeue: "+ cq.dequeue());
 			 System.out.println("Dequeue: "+ cq.dequeue());
