@@ -6,7 +6,12 @@ public class NodesWithoutSibilings {
 		if(root == null)
 			return;
 		
-		if(root.left == null && root.right == null) {
+		if(root.left == null && root.right != null) {
+			System.out.print(root.data+" ");
+			return;
+		}
+		
+		if(root.left != null && root.right == null) {
 			System.out.print(root.data+" ");
 			return;
 		}
