@@ -14,22 +14,23 @@ public class LevelOrderTraversal {
 		
 		List<ArrayList<Integer>> ans= new ArrayList<ArrayList<Integer>>();
 		Queue<BinaryTreeNode<Integer>> que= new LinkedList<BinaryTreeNode<Integer>>();
-		
 		que.offer(root);
+		
 		while(! que.isEmpty()) {
-			BinaryTreeNode<Integer> child= que.peek();
 			int size= que.size();
 			ArrayList<Integer> smallans= new ArrayList<Integer>();
+			
 			while(size-- > 0) {
-				smallans.add(que.poll());
+				BinaryTreeNode<Integer> child=que.remove();
+				smallans.add(child.data);
+				if(child.left != null)
+				   que.offer(child.left);
+				if(child.right != null)
+				   que.offer(child.right);
 			}
 			ans.add(smallans);
-			que.offer(child.left);
-			que.offer(child.right);
 		}
-		
-	return ans;	
-		
+		 return ans;
 	}
 
 	public static void main(String[] args) {
@@ -38,6 +39,9 @@ public class LevelOrderTraversal {
 		
 		List<ArrayList<Integer>> res= levelWiseTraversal(root);
 		
+		for(int i=0;i<res.size();i++){
+		    System.out.print(res.get(i)+" ");
+		} 
 	}
 
 }
