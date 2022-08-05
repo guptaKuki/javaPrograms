@@ -9,6 +9,20 @@ class TreeNode {
 		this.data= data;
 	}
 }
+
+class DeleteReturn{
+	TreeNode newRoot;
+	boolean deleted;
+	
+	DeleteReturn(){
+	}
+	
+	DeleteReturn (TreeNode root , boolean deleted){
+		this.newRoot=root;
+		this.deleted=deleted;
+	}
+}
+
 public class BST {
 	
 	private TreeNode root;
@@ -47,9 +61,56 @@ public class BST {
 		
 		return node;
 	}
+	
+	private static DeleteReturn deletehelper(TreeNode root , int x) {
+		
+		if(root == null)
+			return new DeleteReturn(null,false);
+		
+		if(root.data > x) {
+			DeleteReturn newleft=deletehelper(root.left,x);
+			root.left=newleft.newRoot;
+			newleft.newRoot=root;
+			return newleft;
+		}
+		if(root.data < x) {
+			DeleteReturn newright=deletehelper(root.right,x);
+			root.right=newright.newRoot;
+			newright.newRoot=root;
+			return newright;
+		}
+		//0 Children
+		if(root.left == null && root.right == null)
+			return new DeleteReturn(null,true);
+		//only left children present
+		if(root.left != null && root.right == null)
+			return new DeleteReturn(root.left,true);
+		//only Right children present
+		if(root.left == null && root.right != null)
+			return new DeleteReturn(root.right,true);
+		// both children present
+		int rightmax=minimum(root.right);
+		root.data=rightmax;
+		DeleteReturn outputRight=deletehelper(root.right,rightmax);
+		root.right=  outputRight.newRoot;
+		return new DeleteReturn(root,true);
+		
+	}
+	
+	private static int minimum(TreeNode root) {
+		if(root == null)
+			return Integer.MAX_VALUE;
+		int right=minimum(root.right);
+		int left=minimum(root.left);
+		return Math.min(root.data , Math.min(right, left));
+	}
 
 	public boolean delete(int x) {
-		return false;
+		 DeleteReturn ans= deletehelper(root,x);
+		 root=ans.newRoot;
+		 if(ans.deleted)
+			 size--;
+		 return ans.deleted;
 	}
 	
 	public int size() {

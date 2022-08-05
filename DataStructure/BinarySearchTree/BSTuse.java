@@ -16,9 +16,11 @@ public class BSTuse {
 		
 		b.printTree();
 		
-		System.out.println("Is present :"+b.isPresent(2));
-		b.delete(2);
-		System.out.println("Is present :s"+b.isPresent(2));
+		System.out.println("Is present :"+b.isPresent(5));
+		b.delete(5);
+		System.out.println("Is present :s"+b.isPresent(5));
+		
+		b.printTree();
 	}
 
 }
